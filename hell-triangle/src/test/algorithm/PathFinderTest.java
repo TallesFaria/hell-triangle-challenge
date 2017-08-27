@@ -35,7 +35,7 @@ public class PathFinderTest {
     }
     
     @Test(expected = NullTriangleException.class)
-        public final void incorrectConstructorTest() {
+    public final void incorrectConstructorTest() {
         Triangle triangle = null;
         
         new PathFinder(triangle);

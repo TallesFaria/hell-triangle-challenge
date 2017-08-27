@@ -7,25 +7,24 @@ public class PathFinder {
     
     private Triangle triangle;
     
-    public PathFinder(Triangle input) {
-        if(input == null) {
+    public PathFinder(Triangle data) {
+        if(data == null) {
             throw new NullTriangleException();
         }
         
-        this.triangle = input;
-    }
+        this.triangle = data;
+    }    
     
-    public final long getBiggestSum() {
-        long sum = triangle.getFristPosition();
-        
-        int col = 0;
-        
-        for(int i = 0; i < triangle.getTriangleSize() - 1; i++) {
-            sum += triangle.getBiggestNeighbor(i, col);
-            
-            col = triangle.getColBiggestNeighbor(i, col);
+    public final int getBiggestSum() {
+        int size = triangle.getSize();
+        int[][] triangleHell = new int[size][size]
+
+        for (int i = size - 2; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                triangleHell[i, j] += Math.Max(triangle.getValue(i+1,j), triangle.getValue(i+1, j+1));
+            }
         }
         
-        return sum;
+        return triangleHell[0][0];
     }
 }
