@@ -5,9 +5,13 @@ Given a triangle of numbers, find the maximum total from top to bottom
 Example:
 
 6
+
 3 5
+
 9 7 1
+
 4 6 8 4 
+
 
 In this triangle the maximum total is 6 + 5 + 7 + 8 = 26. An element can only be summed with one of the two nearest elements in the next row so the element 3 in row 2 can be summed with 9 and 7, but not with 1.
 
@@ -33,20 +37,29 @@ We can make a short-cut with the algorithm, as we don’t have to break the prob
 We start with a triangle that looks like
 
 3
+
 7 4
+
 2 4 6
+
 8 5 9 3
+
 
 Applying the algorithm to the small problem we will need three iterations. The first iteration we apply the rule a + max(b,c) which creates a new triangle which looks as
 
 3
+
 7 4
+
 10 13 15
+
 
 Making the second iteration of the algorithm makes the triangle look
 
 3
+
 20 19
+
 
 And if we run the algorithm once more, the triangle collapses to one number – 23 – which is the answer to the question.
 
