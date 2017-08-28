@@ -1,16 +1,16 @@
-package algorithm;
+package test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import exception.NullTriangleException;
-import model.Triangle;
+import main.Triangle;
+import main.TriangleError;
+import main.TriangleSearch;
 
-public class PathFinderTest {
-
-    static int[][] stressTriangleConfig;
+public class Algorithm {
+	static int[][] stressTriangleConfig;
 	
     @BeforeClass
     public static final void initialConfigurations() {
@@ -31,14 +31,14 @@ public class PathFinderTest {
         
         Triangle triangle = new Triangle(triangleConfig);
         
-        new PathFinder(triangle);
+        new TriangleSearch(triangle);
     }
     
-    @Test(expected = NullTriangleException.class)
+    @Test(expected = TriangleError.class)
     public final void incorrectConstructorTest() {
         Triangle triangle = null;
         
-        new PathFinder(triangle);
+        new TriangleSearch(triangle);
     }
     
     @Test
@@ -47,17 +47,28 @@ public class PathFinderTest {
         
         Triangle triangle = new Triangle(triangleConfig);
         
-        PathFinder pathFinder = new PathFinder(triangle);
+        TriangleSearch TriangleSearch = new TriangleSearch(triangle);
         
-        assertEquals(26, pathFinder.getBiggestSum());
+        assertEquals(26, TriangleSearch.getBiggestSum());
+    }
+    
+    @Test
+    public final void getBiggestSumTest2() {
+        int[][] triangleConfig = {{6},{8,4},{2,3,1},{7,12,15,-3},{-8, -7, 0, 4, 5},{6, -2, 1, -2, 7, -4}};
+        
+        Triangle triangle = new Triangle(triangleConfig);
+        
+        TriangleSearch TriangleSearch = new TriangleSearch(triangle);
+        
+        assertEquals(43, TriangleSearch.getBiggestSum());
     }
     
     @Test
     public final void getBiggestSumStressTest() {
         Triangle triangle = new Triangle(stressTriangleConfig);
         
-        PathFinder pathFinder = new PathFinder(triangle);
+        TriangleSearch TriangleSearch = new TriangleSearch(triangle);
         
-        pathFinder.getBiggestSum();
+        TriangleSearch.getBiggestSum();
     }
 }
