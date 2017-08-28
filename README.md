@@ -26,7 +26,8 @@ We are interested in your solution considering:
 
 # Solution
 
-Dynamic Programming – The Algorithm
+#Dynamic Programming – The Algorithm
+
 We can make a short-cut with the algorithm, as we don’t have to break the problem into sub-problems, but can start from the bottom and work the way up through the triangle until we reach the top and the algorithm spits out a number.
 
 We start with a triangle that looks like
